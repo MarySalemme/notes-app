@@ -25,3 +25,18 @@
 
   testNoteListShowsNotes();
 })(this);
+
+(function(exports) {
+  function testCreateNote() {
+    var noteList = new NoteList();
+
+    noteList.createNote("hello");
+    if (this.notes[0].text !== "hello") {
+      throw new Error("New note not created");
+    } else {
+      console.log("Test passed")
+    }
+  };
+
+  testCreateNote();
+})(this);
