@@ -1,19 +1,16 @@
 (function(exports) {
   function NoteList() {
-    this.notes = [];
+    this._notes = [];
   };
 
-  function showNotes() {
-    return NoteList.notes;
+  NoteList.prototype.showNotes = function () {
+    return this._notes;
   };
 
-// working on scope for this function
-  function createNote(text) {
+  NoteList.prototype.createNote = function (text) {
     note = new Note(text);
-    (NoteList.notes).push(note)
+    (this._notes).push(note)
   };
 
-  exports.createNote = createNote;
-  exports.showNotes = showNotes;
   exports.NoteList = NoteList;
 })(this);
