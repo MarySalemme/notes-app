@@ -14,6 +14,13 @@ it("it returns a string of HTML that represents the note list model", function (
   assertEquals(noteListView.createHtmlList(), htmlResult);
 });
 
+it("it returns <ul></ul> that represents the note list model", function () {
+  noteList = new NoteList();
+  noteListView = new NoteListView(noteList);
+  htmlResult = "<ul></ul>";
+  assertEquals(noteListView.createHtmlList(), htmlResult);
+});
+
 it("it returns a string of HTML for each note in the list", function () {
   noteList = new NoteList();
   noteListView = new NoteListView(noteList);
