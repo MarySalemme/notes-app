@@ -1,9 +1,19 @@
-window.onclick = function() {
-  var greetings = document.getElementById('app');
-  
-  function changeGreeting(text) {
-    greetings.innerHTML = text;
+(function(exports) {
+  function NoteController() {
+    var newNoteList = new NoteList();
+    noteList.createNote("something");
+    var noteListView = new NoteListView(newNoteList);
   };
-  
-  changeGreeting('Howdy');
-};
+
+  NoteController.prototype.insertTextToApp = function() {
+    return noteListView.createHtmlList();
+  };
+
+  exports.NoteController = NoteController;
+})(this);
+
+window.onload = function() {
+  var list = document.getElementById('app')
+  noteController = new NoteController();
+  list.innerHTML = noteController.insertTextToApp();
+}
